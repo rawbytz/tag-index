@@ -12,6 +12,7 @@
 ### Links:  
 - [Click here for a bookmarklet link you can drag to install.](https://rawbytz.blogspot.com/p/tagindex-bookmarklet.html)
 ### Version Notes
+- v3.4 (2019-12-15) Minor refactor.
 - v3.2 (2019-05-29) Bug fix: will not attempt to write to read only nodes.
 - v3.1 (2019-05-28) Updated to new API item format
 - v3.0 (2018-12-28) minor code cleanup
