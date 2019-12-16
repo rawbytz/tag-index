@@ -1,4 +1,3 @@
-// [] Edit separator for Blogger
 (function tagIndex_3_4(separator ='"_separator_"') {
   function toastMsg(str, sec, err) {
     WF.showMessage(str, err);
