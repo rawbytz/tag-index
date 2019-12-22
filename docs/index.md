@@ -5,7 +5,7 @@
 - The index is created instantly in a new top bullet.
 - Undo the bullet creation with WorkFlowy's undo feature.
 
-![name of image](https://i.imgur.com/OIWK68h.png)
+![tagIndex](https://i.imgur.com/P9NqBGU.png)
 
 ## Installation: Drag this link to your bookmarks bar:
 
