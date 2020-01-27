@@ -1,4 +1,4 @@
-(function tagIndex_3_4(separator ='"_separator_"') {
+(function tagIndex_3_5(separator ='"_separator_"') {
   function toastMsg(str, sec, err) {
     WF.showMessage(str, err);
     setTimeout(WF.hideMessage, (sec || 2) * 1000);
@@ -8,10 +8,11 @@
     const tagList = tagCounts ? tagCounts.getTagList() : [];
     return tagList.map(Tag => Tag.tag)
   }
+  const htmlEscTextForContent = str => str.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/\u00A0/g, " ");
   function newTopBullet(str) {
     WF.editGroup(() => {
       WF.createItem(WF.currentItem(), 0);
-      WF.setItemName(WF.focusedItem(), htmlEscapeTextForContent(str));
+      WF.setItemName(WF.focusedItem(), htmlEscTextForContent(str));
     });
   }
   const canCreateChild = item => !item.isReadOnly() || item.isMainDocumentRoot() || (item.isAddedSubtreePlaceholder() && !item.data.added_subtree.isReadOnly());
