@@ -1,4 +1,4 @@
-(function tagIndex_3_5(separator ='"_separator_"') {
+(function tagIndex_3_6(separator ='"_separator_"') {
   function toastMsg(str, sec, err) {
     WF.showMessage(str, err);
     setTimeout(WF.hideMessage, (sec || 2) * 1000);
