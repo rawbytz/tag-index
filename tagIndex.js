@@ -1,4 +1,4 @@
-(function tagIndex_3_6(separator ='"_separator_"') {
+(function tagIndex_3_7(separator ='"_separator_"') {
 
   if (separator === '"_separator_"') separator = " ";
 
@@ -19,11 +19,10 @@
       WF.setItemName(newBullet, htmlEscTextForContent(str));
     });
   }
-  const canCreateChild = item => !item.isReadOnly() || item.isMainDocumentRoot() || (item.isAddedSubtreePlaceholder() && !item.data.added_subtree.isReadOnly());
   const current = WF.currentItem();
   const tagNames = getDescendantTags(current);
   if (tagNames.length === 0) return void toastMsg("No tags found.", 2, true);
-  if (!canCreateChild(current)) return void toastMsg("Read-Only. Cannot create bullet", 5, true);
+  if (current.isEmbedded()) return void toastMsg("Tag Index is disabled for added shares.", 5, true);
   tagNames.sort((a, b) => a.localeCompare(b));
   newTopBullet(tagNames.join(separator));
 })();
