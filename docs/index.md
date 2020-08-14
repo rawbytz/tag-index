@@ -10,7 +10,7 @@
 ## Installation: Drag this link to your bookmarks bar:
 
 <!-- [] Edit separator -->
-<a href="javascript:(function tagIndex_3_6(separator=' | '){if(separator==='&quot;_separator_&quot;')separator=&quot; &quot;;function toastMsg(str,sec,err){WF.showMessage(str,err);setTimeout(WF.hideMessage,(sec||2)*1e3)}function getDescendantTags(item){const tagCounts=item.isMainDocumentRoot()?getRootDescendantTagCounts():item.getTagManager().descendantTagCounts;const tagList=tagCounts?tagCounts.getTagList():[];const tagArr=tagList.map(Tag=&gt;Tag.tag);return tagArr.filter(tag=&gt;tag.toLowerCase()!==&quot;#template&quot;)}const htmlEscTextForContent=str=&gt;str.replace(/&amp;/g,&quot;&amp;amp;&quot;).replace(/&gt;/g,&quot;&amp;gt;&quot;).replace(/&lt;/g,&quot;&amp;lt;&quot;).replace(/\u00A0/g,&quot; &quot;);function newTopBullet(str){WF.editGroup(()=&gt;{const newBullet=WF.createItem(WF.currentItem(),0);WF.setItemName(newBullet,htmlEscTextForContent(str))})}const canCreateChild=item=&gt;!item.isReadOnly()||item.isMainDocumentRoot()||item.isAddedSubtreePlaceholder()&amp;&amp;!item.data.added_subtree.isReadOnly();const current=WF.currentItem();const tagNames=getDescendantTags(current);if(tagNames.length===0)return void toastMsg(&quot;No tags found.&quot;,2,true);if(!canCreateChild(current))return void toastMsg(&quot;Read-Only. Cannot create bullet&quot;,5,true);tagNames.sort((a,b)=&gt;a.localeCompare(b));newTopBullet(tagNames.join(separator))})();">tagIndex</a>
+<a href="javascript:(function tagIndex_3_7(separator=' | '){if(separator==='&quot;_separator_&quot;')separator=&quot; &quot;;function toastMsg(str,sec,err){WF.showMessage(str,err);setTimeout(WF.hideMessage,(sec||2)*1e3)}function getDescendantTags(item){const tagCounts=item.isMainDocumentRoot()?getRootDescendantTagCounts():item.getTagManager().descendantTagCounts;const tagList=tagCounts?tagCounts.getTagList():[];const tagArr=tagList.map(Tag=&gt;Tag.tag);return tagArr.filter(tag=&gt;tag.toLowerCase()!==&quot;#template&quot;)}const htmlEscTextForContent=str=&gt;str.replace(/&amp;/g,&quot;&amp;amp;&quot;).replace(/&gt;/g,&quot;&amp;gt;&quot;).replace(/&lt;/g,&quot;&amp;lt;&quot;).replace(/\u00A0/g,&quot; &quot;);function newTopBullet(str){WF.editGroup(()=&gt;{const newBullet=WF.createItem(WF.currentItem(),0);WF.setItemName(newBullet,htmlEscTextForContent(str))})}const current=WF.currentItem();const tagNames=getDescendantTags(current);if(tagNames.length===0)return void toastMsg(&quot;No tags found.&quot;,2,true);if(current.isEmbedded())return void toastMsg(&quot;Tag Index is disabled for added shares.&quot;,5,true);tagNames.sort((a,b)=&gt;a.localeCompare(b));newTopBullet(tagNames.join(separator))})();">tagIndex</a>
 
 ## Customize bookmarklet after install:
 - Right click the bookmarklet in the bookmarks bar > Edit
@@ -23,6 +23,7 @@
 - [rawbytz Blog](https://rawbytz.wordpress.com)
 
 ## Version Notes:
+- v3.7 (2020-08-14) Disabled for all added shares.
 - v3.6 (2020-06-28) Remove #template tag from index
 - v3.5 (2020-01-26) Updated html escape function
 - v3.4 (2019-12-15) Minor refactor.
