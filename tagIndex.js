@@ -1,4 +1,4 @@
-(function tagIndex_3_7(separator ='"_separator_"') {
+(function tagIndex_3_8(separator ='"_separator_"') {
 
   if (separator === '"_separator_"') separator = " ";
 
@@ -10,7 +10,8 @@
     const tagCounts = item.isMainDocumentRoot() ? getRootDescendantTagCounts() : item.getTagManager().descendantTagCounts;
     const tagList = tagCounts ? tagCounts.getTagList() : [];
     const tagArr = tagList.map(Tag => Tag.tag);
-    return tagArr.filter(tag => tag.toLowerCase() !== "#template");
+    // Filter out template tags
+    return tagArr.filter(tag => tag.toLowerCase() !== "#template" && !tag.toLowerCase().startsWith("#use-template"));
   }
   const htmlEscTextForContent = str => str.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/\u00A0/g, " ");
   function newTopBullet(str) {
