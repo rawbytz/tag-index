@@ -10,19 +10,20 @@
 ## Installation: Drag this link to your bookmarks bar:
 
 <!-- [] Edit separator -->
-<a href="javascript:(function tagIndex_3_7(separator=' | '){if(separator==='&quot;_separator_&quot;')separator=&quot; &quot;;function toastMsg(str,sec,err){WF.showMessage(str,err);setTimeout(WF.hideMessage,(sec||2)*1e3)}function getDescendantTags(item){const tagCounts=item.isMainDocumentRoot()?getRootDescendantTagCounts():item.getTagManager().descendantTagCounts;const tagList=tagCounts?tagCounts.getTagList():[];const tagArr=tagList.map(Tag=&gt;Tag.tag);return tagArr.filter(tag=&gt;tag.toLowerCase()!==&quot;#template&quot;)}const htmlEscTextForContent=str=&gt;str.replace(/&amp;/g,&quot;&amp;amp;&quot;).replace(/&gt;/g,&quot;&amp;gt;&quot;).replace(/&lt;/g,&quot;&amp;lt;&quot;).replace(/\u00A0/g,&quot; &quot;);function newTopBullet(str){WF.editGroup(()=&gt;{const newBullet=WF.createItem(WF.currentItem(),0);WF.setItemName(newBullet,htmlEscTextForContent(str))})}const current=WF.currentItem();const tagNames=getDescendantTags(current);if(tagNames.length===0)return void toastMsg(&quot;No tags found.&quot;,2,true);if(current.isEmbedded())return void toastMsg(&quot;Tag Index is disabled for added shares.&quot;,5,true);tagNames.sort((a,b)=&gt;a.localeCompare(b));newTopBullet(tagNames.join(separator))})();">tagIndex</a>
+<a href="javascript:(function tagIndex_3_8(separator=' | '){if(separator==='&quot;_separator_&quot;')separator=&quot; &quot;;function toastMsg(str,sec,err){WF.showMessage(str,err);setTimeout(WF.hideMessage,(sec||2)*1e3)}function getDescendantTags(item){const tagCounts=item.isMainDocumentRoot()?getRootDescendantTagCounts():item.getTagManager().descendantTagCounts;const tagList=tagCounts?tagCounts.getTagList():[];const tagArr=tagList.map(Tag=&gt;Tag.tag);return tagArr.filter(tag=&gt;tag.toLowerCase()!==&quot;#template&quot;&amp;&amp;!tag.toLowerCase().startsWith(&quot;#use-template&quot;))}const htmlEscTextForContent=str=&gt;str.replace(/&amp;/g,&quot;&amp;amp;&quot;).replace(/&gt;/g,&quot;&amp;gt;&quot;).replace(/&lt;/g,&quot;&amp;lt;&quot;).replace(/\u00A0/g,&quot; &quot;);function newTopBullet(str){WF.editGroup(()=&gt;{const newBullet=WF.createItem(WF.currentItem(),0);WF.setItemName(newBullet,htmlEscTextForContent(str))})}const current=WF.currentItem();const tagNames=getDescendantTags(current);if(tagNames.length===0)return void toastMsg(&quot;No tags found.&quot;,2,true);if(current.isEmbedded())return void toastMsg(&quot;Tag Index is disabled for added shares.&quot;,5,true);tagNames.sort((a,b)=&gt;a.localeCompare(b));newTopBullet(tagNames.join(separator))})();">tagIndex</a>
 
 ## Customize bookmarklet after install:
 - Right click the bookmarklet in the bookmarks bar > Edit
 - Near the beginning of the code/url you will see this:  `(separator=' | ');`
 - Edit between the single quotes to define your custom separator.
-- Use a single space or colon for maximum density.
+- Use a single space for maximum density.
 
 ## Links:
 - [Source code](https://github.com/rawbytz/tag-index/blob/master/tagIndex.js)
 - [rawbytz Blog](https://rawbytz.wordpress.com)
 
 ## Version Notes:
+- v3.8 (2022-07-12) Remove #use-template from index
 - v3.7 (2020-08-14) Disabled for all added shares.
 - v3.6 (2020-06-28) Remove #template tag from index
 - v3.5 (2020-01-26) Updated html escape function
